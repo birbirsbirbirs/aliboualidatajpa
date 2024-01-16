@@ -1,8 +1,6 @@
 package co.pitam.aliboualidatajpa.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,4 +18,7 @@ public class Resources {
     private String name;
     private int size;
     private String url;
+    @OneToOne
+    @JoinColumn(name = "lecture_id")
+    private Lecture lecture;
 }
