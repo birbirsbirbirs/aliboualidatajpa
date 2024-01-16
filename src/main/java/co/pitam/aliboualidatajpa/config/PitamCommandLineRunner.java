@@ -1,0 +1,25 @@
+package co.pitam.aliboualidatajpa.config;
+
+import co.pitam.aliboualidatajpa.model.Author;
+import co.pitam.aliboualidatajpa.repository.AuthorRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+@RequiredArgsConstructor
+@Slf4j
+public class PitamCommandLineRunner implements CommandLineRunner {
+    private final AuthorRepository authorRepository;
+    @Override
+    public void run(String... args) throws Exception {
+        Author alibouAuthor = Author.builder()
+                .firstName("alibou")
+                .lastName("alibou")
+                .age(34)
+                .email("alibou@gmail.com")
+                .build();
+        authorRepository.save(alibouAuthor);
+    }
+}

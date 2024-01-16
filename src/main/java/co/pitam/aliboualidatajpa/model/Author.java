@@ -1,11 +1,17 @@
 package co.pitam.aliboualidatajpa.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 @Entity
 //@Table(name = "AUTHOR_TBL")
 public class Author {
@@ -52,6 +58,8 @@ public class Author {
     )
     private String email;
     private int age;
+    @ManyToMany(mappedBy = "authors")  // it will make Course owner
+    private List<Course> courses;
 /*
     @Column(
             updatable = false,
