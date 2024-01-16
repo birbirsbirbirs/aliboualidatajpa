@@ -1,21 +1,21 @@
 package co.pitam.aliboualidatajpa.model;
 
-import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
-
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @Entity
 //@Table(name = "AUTHOR_TBL")
-public class Author {
-    @Id
+public class Author extends PitamBaseEntity{
+
     /*
 //    for auto generation and not table
         @GeneratedValue(
@@ -43,9 +43,12 @@ public class Author {
             allocationSize = 1
     )
      */
-
+    /* //moved to PitamBaseEntity
+        @Id
     @GeneratedValue
     private Integer id;
+     */
+
     @Column(
             name = "f_name",
             length = 35

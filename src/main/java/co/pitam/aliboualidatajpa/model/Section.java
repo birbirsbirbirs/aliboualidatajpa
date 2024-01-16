@@ -1,22 +1,17 @@
 package co.pitam.aliboualidatajpa.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
-
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @Entity
-public class Section {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Section extends PitamBaseEntity {
     private String name;
     private int sectionOrder;
     @ManyToOne //many section belong to one course

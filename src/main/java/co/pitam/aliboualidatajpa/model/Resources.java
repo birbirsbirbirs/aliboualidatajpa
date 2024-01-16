@@ -2,19 +2,17 @@ package co.pitam.aliboualidatajpa.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-
+import lombok.experimental.SuperBuilder;
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @Entity
-public class Resources {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Resources extends PitamBaseEntity {
     private String name;
     private int size;
     private String url;

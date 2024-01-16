@@ -2,21 +2,19 @@ package co.pitam.aliboualidatajpa.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
-
+@EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
-@Builder
+@SuperBuilder
 @AllArgsConstructor
 @Entity
-public class Course {
-    @Id
-    @GeneratedValue
-    private Integer id;
+public class Course extends PitamBaseEntity {
     private String title;
     private String description;
 //    this is owner of the relationship
