@@ -13,7 +13,7 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @AllArgsConstructor
 @Entity
-@DiscriminatorValue("PT")
+//@DiscriminatorValue("PT")
 public class PitamText extends Resources{
     private String content;
 }
