@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
+import java.time.LocalDateTime;
+
 @Configuration
 @RequiredArgsConstructor
 @Slf4j
@@ -19,6 +21,7 @@ public class PitamCommandLineRunner implements CommandLineRunner {
                 .lastName("alibou")
                 .age(34)
                 .email("alibou@gmail.com")
+                .createdAt(LocalDateTime.now())
                 .build();
         authorRepository.save(alibouAuthor);
     }
