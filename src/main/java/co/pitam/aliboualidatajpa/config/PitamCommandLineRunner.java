@@ -37,5 +37,22 @@ public class PitamCommandLineRunner implements CommandLineRunner {
                     .build());
         }
 
+//        update author with ID 1
+        authorRepository.save(Author.builder()
+                        .id(1)
+                .firstName("alibou100")
+                .lastName("alibou100")
+                .age(34)
+                .email("alibou"+100+"@gmail.com")
+                .createdAt(LocalDateTime.now())
+                .build());
+
+//        update author a set a.age=22 where a.id=2
+        authorRepository.updateAuthor(22,2);
+
+//        update age of all author
+        authorRepository.updateAllAuthorAges(99);
+
+
     }
 }

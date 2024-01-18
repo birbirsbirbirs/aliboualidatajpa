@@ -1,7 +1,10 @@
 package co.pitam.aliboualidatajpa.repository;
 
 import co.pitam.aliboualidatajpa.model.Author;
+import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
@@ -29,4 +32,16 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
     select * from author where first_name in ('ali','bou','coding')
   */
     List<Author> findAllByFirstNameInIgnoreCase(List<String> firstNames);
+
+//    update author a set a.age=22 where a.id=2
+    @Modifying
+    @Transactional
+    @Query("update Author a set a.age = :age where a.id=:id")
+    int updateAuthor(int age,int id);
+
+
+    @Modifying
+    @Transactional
+    @Query("update Author a set a.age = :age")
+    void updateAllAuthorAges(int age);
 }

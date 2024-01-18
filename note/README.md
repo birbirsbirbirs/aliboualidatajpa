@@ -4,3 +4,4 @@
 * inheritance and composition, generally recommended to use composition
 * https://docs.spring.io/spring-data/jpa/reference/index.html
 ![img_3.png](img_3.png)
+* https://youtu.be/mcl_nibV39s?t=16082
