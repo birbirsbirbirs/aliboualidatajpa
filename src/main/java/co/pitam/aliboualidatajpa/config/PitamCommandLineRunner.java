@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 @Slf4j
 public class PitamCommandLineRunner implements CommandLineRunner {
     private final AuthorRepository authorRepository;
+
     @Override
     public void run(String... args) throws Exception {
         Author alibouAuthor = Author.builder()
@@ -24,34 +25,39 @@ public class PitamCommandLineRunner implements CommandLineRunner {
                 .createdAt(LocalDateTime.now())
                 .build();
         authorRepository.save(alibouAuthor);
-/*
-* dummy data populate
-*  */
-        for (int i=0;i<50;i++){
+        /*
+         * dummy data populate
+         *  */
+        for (int i = 0; i < 50; i++) {
             authorRepository.save(Author.builder()
-                    .firstName("alibou"+i)
-                    .lastName("alibou"+i)
+                    .firstName("alibou" + i)
+                    .lastName("alibou" + i)
                     .age(34)
-                    .email("alibou"+i+"@gmail.com")
+                    .email("alibou" + i + "@gmail.com")
                     .createdAt(LocalDateTime.now())
                     .build());
         }
 
 //        update author with ID 1
         authorRepository.save(Author.builder()
-                        .id(1)
+                .id(1)
                 .firstName("alibou100")
                 .lastName("alibou100")
                 .age(34)
-                .email("alibou"+100+"@gmail.com")
+                .email("alibou" + 100 + "@gmail.com")
                 .createdAt(LocalDateTime.now())
                 .build());
 
 //        update author a set a.age=22 where a.id=2
-        authorRepository.updateAuthor(22,2);
+        authorRepository.updateAuthor(22, 2);
 
 //        update age of all author
         authorRepository.updateAllAuthorAges(99);
+
+//        find by named query
+        authorRepository.findByNamedQuery(60).forEach(System.out::println);
+
+        authorRepository.updateByNamedQuery(25);
 
 
     }

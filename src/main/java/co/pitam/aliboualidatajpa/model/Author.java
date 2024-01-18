@@ -1,20 +1,32 @@
 package co.pitam.aliboualidatajpa.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
 @SuperBuilder
 @AllArgsConstructor
 @Entity
+@NamedQueries(
+        {
+                @NamedQuery(
+                        name = "Author.findByNamedQuery",
+                        query = "select a from Author a where a.age >= :age"
+                ),
+                @NamedQuery(
+                        name = "Author.updateByNamedQuery",
+                        query = "update Author a set a.age=:age"
+                )
+        }
+)
+
 //@Table(name = "AUTHOR_TBL")
-public class Author extends PitamBaseEntity{
+public class Author extends PitamBaseEntity {
 
     /*
 //    for auto generation and not table
@@ -61,7 +73,7 @@ public class Author extends PitamBaseEntity{
     )
     private String email;
     private int age;
-    @ManyToMany(mappedBy = "authors")  // it will make Course owner
+    @ManyToMany(mappedBy = "authors", fetch = FetchType.EAGER)  // it will make Course owner
     private List<Course> courses;
 /*
     @Column(
