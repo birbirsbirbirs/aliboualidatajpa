@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
+
 @EqualsAndHashCode(callSuper = true)
 @Data
 @NoArgsConstructor
@@ -17,7 +18,7 @@ import java.util.List;
 public class Course extends PitamBaseEntity {
     private String title;
     private String description;
-//    this is owner of the relationship
+    //    this is owner of the relationship
     @ManyToMany
     @JoinTable(
             name = "authors_courses",

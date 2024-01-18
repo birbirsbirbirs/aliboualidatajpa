@@ -61,11 +61,11 @@ public class PitamCommandLineRunner implements CommandLineRunner {
 
         authorRepository.updateByNamedQuery(25);
 
-        Specification<Author> spec=Specification.where(AuthourSpecification.hasAge(25))
+        Specification<Author> spec = Specification.where(AuthourSpecification.hasAge(25))
                 .and(AuthourSpecification.finstnameContains("alibou5"));
         authorRepository.findAll(spec).forEach(System.out::println);
 
-        Specification<Author> spec1=Specification.where(AuthourSpecification.finstnameContains("alibou10"));
+        Specification<Author> spec1 = Specification.where(AuthourSpecification.finstnameContains("alibou10"));
         authorRepository.findAll(spec1).forEach(System.out::println);
 
 

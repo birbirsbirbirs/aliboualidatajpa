@@ -35,11 +35,11 @@ public interface AuthorRepository extends JpaRepository<Author, Integer>, JpaSpe
   */
     List<Author> findAllByFirstNameInIgnoreCase(List<String> firstNames);
 
-//    update author a set a.age=22 where a.id=2
+    //    update author a set a.age=22 where a.id=2
     @Modifying
     @Transactional
     @Query("update Author a set a.age = :age where a.id=:id")
-    int updateAuthor(int age,int id);
+    void updateAuthor(int age, int id);
 
 
     @Modifying

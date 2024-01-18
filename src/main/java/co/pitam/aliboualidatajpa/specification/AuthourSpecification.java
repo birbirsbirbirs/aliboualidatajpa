@@ -11,21 +11,21 @@ public class AuthourSpecification {
         return (Root<Author> root,
                 CriteriaQuery<?> query,
                 CriteriaBuilder builder) -> {
-            if(age <0){
+            if (age < 0) {
                 return null;
             }
-            return builder.equal(root.get("age"),age);
+            return builder.equal(root.get("age"), age);
         };
     }
 
-    public static Specification<Author> finstnameContains(String firstName){
+    public static Specification<Author> finstnameContains(String firstName) {
         return (Root<Author> root,
                 CriteriaQuery<?> query,
                 CriteriaBuilder builder) -> {
-            if(firstName == null){
+            if (firstName == null) {
                 return null;
             }
-            return builder.like(root.get("firstName"),"%"+firstName+"%");
+            return builder.like(root.get("firstName"), "%" + firstName + "%");
         };
     }
 
