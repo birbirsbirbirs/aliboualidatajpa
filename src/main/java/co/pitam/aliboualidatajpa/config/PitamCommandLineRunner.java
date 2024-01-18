@@ -2,10 +2,12 @@ package co.pitam.aliboualidatajpa.config;
 
 import co.pitam.aliboualidatajpa.model.Author;
 import co.pitam.aliboualidatajpa.repository.AuthorRepository;
+import co.pitam.aliboualidatajpa.specification.AuthourSpecification;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.domain.Specification;
 
 import java.time.LocalDateTime;
 
@@ -58,6 +60,13 @@ public class PitamCommandLineRunner implements CommandLineRunner {
         authorRepository.findByNamedQuery(60).forEach(System.out::println);
 
         authorRepository.updateByNamedQuery(25);
+
+        Specification<Author> spec=Specification.where(AuthourSpecification.hasAge(25))
+                .and(AuthourSpecification.finstnameContains("alibou5"));
+        authorRepository.findAll(spec).forEach(System.out::println);
+
+        Specification<Author> spec1=Specification.where(AuthourSpecification.finstnameContains("alibou10"));
+        authorRepository.findAll(spec1).forEach(System.out::println);
 
 
     }
