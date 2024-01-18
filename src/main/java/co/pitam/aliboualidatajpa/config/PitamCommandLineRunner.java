@@ -24,5 +24,18 @@ public class PitamCommandLineRunner implements CommandLineRunner {
                 .createdAt(LocalDateTime.now())
                 .build();
         authorRepository.save(alibouAuthor);
+/*
+* dummy data populate
+*  */
+        for (int i=0;i<50;i++){
+            authorRepository.save(Author.builder()
+                    .firstName("alibou"+i)
+                    .lastName("alibou"+i)
+                    .age(34)
+                    .email("alibou"+i+"@gmail.com")
+                    .createdAt(LocalDateTime.now())
+                    .build());
+        }
+
     }
 }
