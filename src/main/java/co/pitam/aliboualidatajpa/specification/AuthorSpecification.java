@@ -6,7 +6,7 @@ import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
 import org.springframework.data.jpa.domain.Specification;
 
-public class AuthourSpecification {
+public class AuthorSpecification {
     public static Specification<Author> hasAge(int age) {
         return (Root<Author> root,
                 CriteriaQuery<?> query,
