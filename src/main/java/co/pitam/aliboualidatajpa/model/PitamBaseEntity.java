@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
@@ -16,7 +17,7 @@ import java.time.LocalDateTime;
 @SuperBuilder
 @AllArgsConstructor
 @MappedSuperclass
-public class PitamBaseEntity {
+public class PitamBaseEntity implements Serializable {
     @Id
     @GeneratedValue
     private Integer id;

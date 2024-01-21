@@ -9,3 +9,17 @@ spring:
       ddl-auto: create-drop
     database: postgresql
     show-sql: true
+
+  cache:
+    type: redis
+    cache-names:
+      - cache1
+      - cache2
+    redis:
+      time-to-live: 60000 # 1 min
+      cache-null-values: true
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
